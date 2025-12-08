@@ -15,7 +15,7 @@ export default function FormularioRegistro({ onRegistrar }) {
       return;
     }
     setError("");
-    onRegistrar({ nombre: nombre.trim(), usuario: usuario.trim(), contacto: contacto.trim(), contrasena: contrasena.trim() });
+    onRegistrar({ nombre, usuario, contacto, contrasena });
   };
 
   return (
@@ -50,7 +50,7 @@ export default function FormularioRegistro({ onRegistrar }) {
         onChange={(e) => setContrasena(e.target.value)}
       />
 
-      <button type="submit">Entrar</button>
+      <button type="submit">Registrarse</button>
     </form>
   );
 }

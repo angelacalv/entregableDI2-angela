@@ -1,34 +1,29 @@
 "use client";
 
-import { useState } from "react";
 import FormularioRegistro from "../components/FormularioRegistro";
+import { useRouter } from "next/navigation";
 
 export default function Registro() {
-  const [creado, setCreado] = useState(null);
+  const router = useRouter();
 
-  const handleRegister = ({ nombre, email }) => {
-    setCreado({ nombre, email });
+  const handleRegister = ({ nombre, usuario, contacto, contrasena }) => {
+    
+    router.push("/explorer");
   };
 
   return (
     <main>
-      <h1>Registro</h1>
+      <h1>Viajeros Aventureros</h1>
       <p>"Descubre el mundo con nosotros"</p>
 
-      {!creado ? (
-        <FormularioRegistro onRegister={handleRegister} />
-      ) : (
-        <div>
-          <p>Usuario creado con éxito:</p>
-          <p>{creado.nombre} – {creado.email}</p>
-
-          <a href="/loginUsuario">Iniciar sesión</a>
-        </div>
-      )}
+      <p>INICIAR SESIÓN</p>
+      <FormularioRegistro onRegistrar={handleRegister} />
 
       <p>EL MUNDO ES DEMASIADO GRANDE PARA QUEDARSE EN UN SOLO LUGAR</p>
     </main>
   );
 }
+
+
 
 

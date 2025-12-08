@@ -1,16 +1,20 @@
-# Proyecto DI — Entrega 2 (2025/2026)
+Viajeros Aventureros 
 
-## Descripción
-Aplicación Next.js (App Router) que implementa un prototipo de Figma como componentes React reutilizables sin estilos (sin CSS).  
-Incluye: Header, Footer, Grid, Card, formularios (login/registro), renderizado dinámico, props y uso de `useState`.
+Proyecto DI — Entrega 2 (IES Laguna de Tollón · 2025/2026)
 
-## Requisitos
-- Node.js (>=16 recomendado)
-- npm
+El proyecto es de una aplicación de viajes donde se puede ver información de diferentes destinos.
 
-## Instalación y ejecución
-1. Clona el repositorio:
-```bash
-git clone <TU_REPOSITORIO_URL>
-cd entregable2-angela
+Esta aplicación web ha sido desarrollada aplicando los conocimientos adquiridos en la unidad sobre creación de interfaces funcionales con React/Next.js, a partir del prototipo diseñado previamente en Figma.
+
+Para poder ejecutar el proyecto:
+1º Tener descargado el Visual Studio Code.
+2º Abrir el Visual Studio Code.
+3º Selecciona la carpeta donde clonaste el proyecto.
+4º Abrir el proyecto y el terminal 
+5º En el terminal poner npm install
+6º Posteriormente npm run dev
+7º Por ultimo abrir el navegador y meternos en: http://localhost:3000
+
+
+
 

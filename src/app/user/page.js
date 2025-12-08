@@ -106,7 +106,7 @@ export default function UserArea() {
 
           <div>
             <button>
-              <a href="/loginUsuario">Cerrar Sesión</a>
+              <a href="/home">Cerrar Sesión</a>
             </button>
 
             <button>

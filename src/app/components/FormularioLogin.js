@@ -26,7 +26,7 @@ export default function FormularioLogin({ onLogin }) {
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          placeholder="ejemplo@mail.com"
+          placeholder="ejemplo@gmail.com"
         />
       </label>
 

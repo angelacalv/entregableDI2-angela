@@ -1,40 +1,38 @@
 "use client";
 
-import FormularioLogin from "../components/FormularioLogin";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
+import FormularioLogin from "../components/FormularioLogin";
 import Link from "next/link";
 
 export default function LoginUsuario() {
-  const [user, setUser] = useState(null);
-  const [mensaje, setMensaje] = useState("");
+  const [error, setError] = useState("");
+  const router = useRouter();
 
-  const handleLogin = ({ email }) => {
-    setUser({ email });
-    setMensaje(`Inicio de sesión correcto: ${email}`);
+  const handleLogin = ({ email, contrasena }) => {
+    if (email === "angela_calv@icloud.com" && contrasena === "123456") {
+      router.push("/explorer");
+    } else {
+      setError("Credenciales incorrectas");
+    }
   };
 
   return (
     <main>
-      {!user ? (
-        <>
-          <h1>Iniciar Sesión</h1>
-          <p>"Descubre el mundo con nosotros"</p>
+      <h1>Viajeros Aventureros</h1>
+      <p>"Descubre el mundo con nosotros"</p>
 
-          <FormularioLogin onLogin={handleLogin} />
+      <p>INICIAR SESIÓN</p>
 
-          <p>
-            ¿No tienes cuenta?  
-            <Link href="/registro">Regístrate aquí</Link>
-          </p>
+      {error && <p style={{ color: "red" }}>{error}</p>}
 
-          <p>EL MUNDO ES DEMASIADO GRANDE PARA QUEDARSE EN UN SOLO LUGAR</p>
-        </>
-      ) : (
-        <div>
-          <p>{mensaje}</p>
-          <a href="/explorer">Entrar a la App</a>
-        </div>
-      )}
+      <FormularioLogin onLogin={handleLogin} />
+
+      <p>
+        ¿No tienes cuenta? <Link href="/registro">Regístrate aquí</Link>
+      </p>
+
+      <p>EL MUNDO ES DEMASIADO GRANDE PARA QUEDARSE EN UN SOLO LUGAR</p>
     </main>
   );
 }
