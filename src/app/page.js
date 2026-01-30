@@ -1,9 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useRouter } from "next/navigation";
 import Grid from "./components/Grid";
 
 export default function LandingPage() {
+  const router = useRouter();
+
   const destinos = [
     {
       id: 1,
@@ -25,7 +27,9 @@ export default function LandingPage() {
     },
   ];
 
-  const [mostrarMas, setMostrarMas] = useState(false);
+  const handleMostrarMas = () => {
+    router.push("/home");
+  };
 
   return (
     <main>
@@ -33,32 +37,27 @@ export default function LandingPage() {
       <p>"Descubre el mundo con nosotros"</p>
 
       <section>
-        <video src="/amsterdam.mp4"></video>
+        <video src="/amsterdam.mp4" controls />
       </section>
 
       <p>EL MUNDO ES DEMASIADO GRANDE PARA QUEDARSE EN UN SOLO LUGAR</p>
 
       <Grid data={destinos} />
 
-      <button onClick={() => setMostrarMas(!mostrarMas)}>
-        {mostrarMas ? "Ocultar información" : "Mostrar más"}
-      </button>
+      <button onClick={handleMostrarMas}>Mostrar más</button>
 
-      {mostrarMas && (
-        <section>
-          <img src="/mas.png" alt="Amsterdam" />
-          <h3>Amsterdam</h3>
-          <p>
-            Es la capital de los Países Bajos, famosa por sus canales, casas
-            estrechas, museos como el Rijksmuseum y el de Van Gogh, y un ambiente
-            vibrante y multicultural.
-          </p>
-        </section>
-      )}
-
-      <a href="/home">
-        <button>Entrar</button>
-      </a>
+      {/* Bloque inferior fijo (como en Figma) */}
+      <section>
+        <img src="/mas.png" alt="Amsterdam" />
+        <h3>Amsterdam</h3>
+        <p>
+          Es la capital de los Países Bajos, conocida por sus canales pintorescos,
+          casas con fachadas estrechas, y su ambiente abierto y multicultural.
+          Es famosa por su arquitectura histórica, museos como el Rijksmuseum y el de Van Gogh,
+          y su cultura del uso de la bicicleta. Además, combina el encanto de una ciudad antigua
+          con una vida moderna, artística y vibrante.
+        </p>
+      </section>
     </main>
   );
 }
