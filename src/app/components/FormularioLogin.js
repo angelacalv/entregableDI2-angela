@@ -1,46 +1,43 @@
 "use client";
+
 import { useState } from "react";
 
 export default function FormularioLogin({ onLogin }) {
   const [email, setEmail] = useState("");
   const [contrasena, setContrasena] = useState("");
-  const [error, setError] = useState("");
 
-  const manejarEnvio = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    if (!email.trim() || !contrasena.trim()) {
-      setError("Todos los campos son obligatorios.");
-      return;
-    }
-    setError("");
-    onLogin({ email: email.trim(), contrasena: contrasena.trim() });
+
+    if (!email.trim() || !contrasena.trim()) return;
+
+    onLogin({ email, contrasena });
   };
 
   return (
-    <form onSubmit={manejarEnvio} className="form-login">
-      {error && <p style={{ color: "red" }}>{error}</p>}
+    <form onSubmit={handleSubmit} className="w-full flex flex-col gap-3">
+      <input
+        type="email"
+        placeholder="Correo electrónico"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        className="w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm outline-none focus:border-gray-400"
+      />
 
-      <label>
-        Correo:
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="ejemplo@gmail.com"
-        />
-      </label>
+      <input
+        type="password"
+        placeholder="Contraseña"
+        value={contrasena}
+        onChange={(e) => setContrasena(e.target.value)}
+        className="w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm outline-none focus:border-gray-400"
+      />
 
-      <label>
-        Contraseña:
-        <input
-          type="password"
-          value={contrasena}
-          onChange={(e) => setContrasena(e.target.value)}
-          placeholder="********"
-        />
-      </label>
-
-      <button type="submit">Entrar</button>
+      <button
+        type="submit"
+        className="mt-2 w-full rounded-md border border-gray-300 bg-white py-2 text-sm text-gray-700 hover:bg-gray-50"
+      >
+        Entrar
+      </button>
     </form>
   );
 }
