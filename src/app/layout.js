@@ -1,11 +1,19 @@
-// Layout general que envuelve todas las páginas
+import "./globals.css";
+
+export const metadata = {
+  title: "Viajeros Aventureros",
+  description: "Descubre el mundo con nosotros",
+  icons: {
+    icon: "/favicon.ico",
+  },
+};
+
 export default function RootLayout({ children }) {
   return (
-    <html>
-      <body>
-        {children}
-      </body>
+    <html lang="es">
+      <body>{children}</body>
     </html>
   );
 }
+
 
